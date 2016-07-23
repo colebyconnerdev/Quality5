@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#80000000"
+    android:id="@+id/fragment_input_dialog">
+
+    <LinearLayout
+
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:background="@drawable/dialog_background"
+        android:layout_height="wrap_content"
+        android:id="@+id/inputDialog_container"
+        app:layout_constraintLeft_toLeftOf="@+id/fragment_input_dialog"
+        android:layout_marginLeft="32dp"
+        android:layout_marginStart="32dp"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintTop_toTopOf="@+id/fragment_input_dialog"
+        tools:layout_constraintTop_creator="1"
+        app:layout_constraintRight_toRightOf="@+id/fragment_input_dialog"
+        android:layout_marginRight="32dp"
+        android:layout_marginEnd="32dp"
+        tools:layout_constraintRight_creator="1"
+        app:layout_constraintBottom_toBottomOf="@+id/fragment_input_dialog"
+        tools:layout_constraintBottom_creator="1">
+
+        <LinearLayout
+            android:id="@+id/inputDialog_titleContainer"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="TextView"
+                android:layout_width="match_parent"
+                android:textSize="24sp"
+                android:layout_height="wrap_content"
+                android:id="@+id/inputDialog_titleText" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#01479C"/>
+        </LinearLayout>
+
+        <TextView
+            android:text="TextView"
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/inputDialog_message" />
+
+        <EditText
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/inputDialog_inputText" />
+
+        <LinearLayout
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:text="CANCEL"
+                android:layout_marginRight="4dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/inputDialog_negativeButton"
+                android:layout_weight="1" />
+
+            <Button
+                android:layout_marginLeft="4dp"
+                android:text="OK"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/inputDialog_positiveButton"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
