@@ -28,28 +28,5 @@ public class HomeFragment extends QualityFragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        TextView tv = (TextView) view.findViewById(R.id.home_text);
-        tv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showDialog();
-            }
-        });
-    }
-
-    private void showDialog() {
-        InputDialogFragment f = new InputDialogFragment();
-        f.setTargetFragment(this, 0);
-        f.show(getFragmentManager(), "TEST");
-    }
-
-    @Override
-    public void onInputDialogResult(boolean result, String input) {
-        ((TextView) getView().findViewById(R.id.home_text)).setText(input);
-    }
-
-    @Override
-    public boolean onBackPressed() {
-        return false;
     }
 }

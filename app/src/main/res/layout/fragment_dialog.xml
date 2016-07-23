@@ -37,7 +37,7 @@
             <TextView
                 android:text="TextView"
                 android:layout_width="match_parent"
-                android:textSize="24sp"
+                android:textSize="18sp"
                 android:layout_height="wrap_content"
                 android:id="@+id/inputDialog_titleText" />
 
@@ -49,10 +49,10 @@
 
         <TextView
             android:text="TextView"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="4dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/inputDialog_message" />
+            android:id="@+id/inputDialog_messageText" />
 
         <EditText
             android:layout_marginTop="8dp"

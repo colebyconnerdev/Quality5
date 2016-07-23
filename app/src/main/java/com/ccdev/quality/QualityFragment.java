@@ -1,25 +1,48 @@
 package com.ccdev.quality;
 
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 
 /**
  * Created by Coleby on 7/21/2016.
  */
 
-public abstract class QualityFragment extends Fragment{
-    public abstract boolean onBackPressed();
+public class QualityFragment extends Fragment{
 
-    public void onInputDialogResult(boolean result, String input) {
-        throw new DialogResponseException("onInputDialogResult must be overrode in calling class.");
-    };
+    public FragmentInterface fragmentInterface;
+    public interface FragmentInterface {
+        void setSelectedFragment(QualityFragment fragment);
+    }
 
-    public void onYesNoDialogResult(boolean result) {
-        throw new DialogResponseException("onYesNoDialogResult must be overrode in calling class.");
-    };
-
-    public class DialogResponseException extends RuntimeException {
-        public DialogResponseException(String message) {
-            super(message);
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (!(getActivity() instanceof FragmentInterface)) {
+            throw new ClassCastException("Hosting activity must implement FragmentInterface");
+        } else {
+            fragmentInterface = (FragmentInterface) getActivity();
         }
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        fragmentInterface.setSelectedFragment(this);
+    }
+
+    public boolean onBackPressed() {
+        return false;
+    }
+
+    public void onDialogResult(String input) {
+        Log.e("QualityFragment", "onDialogResult(String input) called but not overridden in " + this.toString());
+    }
+
+    public void onDialogResult() {
+        Log.e("QualityFragment", "onDialogResult() called but not overridden in " + this.toString());
     }
 }
